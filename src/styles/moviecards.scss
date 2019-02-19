@@ -1,0 +1,39 @@
+.card {
+  position: relative;
+  padding: 10px;
+  margin: 5px;
+  cursor: grab;
+  .delete-btn {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0px 0px 2px #888;
+    padding: 0.5em 0.6em;
+
+    &:hover {
+      cursor: pointer;
+      background: red;
+      color: #fff;
+    }
+  }
+  .poster {
+    height: 60px;
+    width: 60px;
+  }
+  .details {
+    .badge {
+      margin-right: 10px;
+    }
+  }
+}
+
+.smooth-dnd-ghost {
+  z-index: 10000;
+
+  .card {
+    box-shadow: 2px 2px 60px #444;
+    background: #fff;
+  }
+}
