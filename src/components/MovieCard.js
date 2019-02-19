@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/moviecards.scss';
 
 export const MovieCard = props => {
-  const { modClass, data, isSource, list } = props;
+  const { modClass, data, isSource } = props;
   const { Poster, Title, Type, Year, imdbID } = data;
   return (
     <div className={modClass}>
@@ -32,4 +33,11 @@ export const MovieCard = props => {
       </div>
     </div>
   );
+};
+
+PropTypes.MovieCard = {
+  modClass: PropTypes.string,
+  data: PropTypes.array.isRequired,
+  isSource: PropTypes.bool,
+  deleteMovie: PropTypes.func.isRequired,
 };

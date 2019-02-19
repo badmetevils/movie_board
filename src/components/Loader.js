@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/loader.css';
 
 const Loader = props => (
@@ -18,5 +19,7 @@ const Loader = props => (
     </div>
   </Fragment>
 );
-
+PropTypes.Loader = {
+  msg: PropTypes.string,
+};
 export default Loader;

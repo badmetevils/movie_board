@@ -16,7 +16,6 @@ class App extends Component {
     downloaded: JSON.parse(localStorage.getItem('downloaded')) || [],
     alreadySeen: JSON.parse(localStorage.getItem('alreadySeen')) || [],
     noRes: false,
-    searchVal: null,
   };
   componentDidMount() {
     const is_all_local = localStorage.getItem('all');
@@ -44,12 +43,12 @@ class App extends Component {
           .includes(inp);
       });
       if (found_items.length > 0) {
-        this.setState({ all: found_items, noRes: false, searchVal: inp });
+        this.setState({ all: found_items, noRes: false });
       } else {
-        this.setState({ noRes: true, all: [], searchVal: inp });
+        this.setState({ noRes: true, all: [] });
       }
     } else {
-      this.setState({ all: JSON.parse(localStorage.getItem('all')), noRes: false, searchVal: inp });
+      this.setState({ all: JSON.parse(localStorage.getItem('all')), noRes: false });
     }
   };
   removeMovieFromBoard = (id, list) => {
@@ -79,15 +78,14 @@ class App extends Component {
               className="form-control"
               placeholder="Search"
               id="search"
-              onInput={this.findMovieInList}
-              value={this.state.searchVal}
+              onChange={this.findMovieInList}
             />
           </div>
           {this.state.noRes ? (
             <Fragment>
               <br />
               <div className="alert alert-danger">
-                <strong>Opps!</strong> No Result Found for <b>{this.state.searchVal}</b>
+                <strong>Opps!</strong> No Result Found for
               </div>
             </Fragment>
           ) : (

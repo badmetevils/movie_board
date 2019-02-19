@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Draggable } from 'react-smooth-dnd';
 import { MovieCard } from './MovieCard';
+import PropTypes from 'prop-types';
 
 export default class Movieboard extends Component {
   render() {
@@ -31,3 +32,11 @@ export default class Movieboard extends Component {
     );
   }
 }
+
+PropTypes.Movieboard = {
+  heading: PropTypes.string,
+  list: PropTypes.string.isRequired,
+  listData: PropTypes.array.isRequired,
+  removeMovie: PropTypes.func.isRequired,
+  onDrop: PropTypes.func.isRequired,
+};
